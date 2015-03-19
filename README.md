@@ -25,9 +25,13 @@ The service has been written as an MVC Web Api service with Microsoft Visual Stu
 ## Contents
 
 Models/FilterShowRequest.cs: 	Contains data entities which represent request data including FilterShowRequest, Show, Image, Episode and Season classes
+
 Models/FilterShowResponse.cs: 	Contains data entities which represent response data including FilterShowResponse and ShowSummary classes
+
 ApplicationServices/IFilterShowService.cs: 	prototype for the filter service, filter method, FilterDRMMinimumEpisodeCount, has been introduced. The filter method is designed to be more general as it takes desired DRM value and minimum episode count. It also get the input ShowList and will return the filtered ShowSummery list.
+
 ApplicationServices/FilterShowService.cs: 	implements the IFilterShowService. 
+
 Controllers/FilterShowController.cs:	designed to have dependency injection as FilterShowService. The dependency is passed trough its constructor, even though it makes a default FilterShowService. This controller is inherited from ApiController and has only the post method. In post method validity of request data has been checked and proper error message has been returned in case of bad request data detection. The filter method is invoked and result is returned.
 
 ## Tests
